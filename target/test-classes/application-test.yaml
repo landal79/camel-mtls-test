@@ -1,0 +1,27 @@
+debug: false
+
+camel:
+  springboot:
+    tracing: true
+
+spring:
+  main:
+    banner-mode: "off"
+
+api:
+  url: "http://localhost:${api.port}?sslContextParameters=#apiSslContextParameters&x509HostnameVerifier=#noopHostnameVerifier"
+  port: 8080
+  path: "/login"
+  ssl:
+    server:
+      trust-self-signed: true
+      certificate:
+        path: "src/test/resources/keystore.p12"
+        password: "changeit"
+        type: "PKCS12"
+    client:
+      certificate:
+        path: "src/test/resources/keystore-mtls.p12"
+        password: "changeit"
+        type: "PKCS12"
+

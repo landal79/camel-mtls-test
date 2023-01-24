@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+
+	<!-- use Spring default values -->
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>${CONSOLE_LOG_PATTERN}</Pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.github.tomakehurst.wiremock" additivity="true" level="trace">
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+	<root level="info">
+		<appender-ref ref="CONSOLE" />
+	</root>
+
+</configuration>
